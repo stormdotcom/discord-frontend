@@ -24,7 +24,7 @@ const setUserDetails = (userDetails) => {
 const login = (userInput, history)=> {
     return async (dispatch)=>{
         const response =await api.login(userInput)
-        if(response.error) return {error:response.exception}
+        if(response?.error) return {error:response.exception}
         const {userDetails} = response?.data;
         localStorage.setItem('user', JSON.stringify(userDetails))
         dispatch(setUserDetails(userDetails))
@@ -35,7 +35,9 @@ const login = (userInput, history)=> {
 const register = (userInput, history)=> {
     return async (dispatch)=>{
         const response =await api.register(userInput)
-        if(response.error) return {error:response.exception}
+        if(response?.error) {
+            // git
+        }
         const {userDetails} = response?.data;
         localStorage.setItem('user', JSON.stringify(userDetails))
         dispatch(setUserDetails(userDetails))

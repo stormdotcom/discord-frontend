@@ -13,7 +13,7 @@ export const login = async(data)=> {
     } catch (exception) {
         return {
             error: true,
-            exception,
+            message:exception.response.data,
         }
     }
 }
@@ -25,7 +25,7 @@ export const register = async(data)=> {
     } catch (exception) {
         return {
             error: true,
-            exception,
+            message:exception.response.data,
         }
     }
 }

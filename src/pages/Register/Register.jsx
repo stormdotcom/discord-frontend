@@ -4,14 +4,22 @@ import AuthBox from '../../components/AuthBox/AuthBox'
 import RegisterInputs from './RegisterInputs'
 import RegisterPageFooter from './RegisterPageFooter'
 import {validateRegister} from "../../utils/validate"
-const Register = () => {
+import { connect } from 'react-redux'
+import { getActions } from '../../redux/actions/authAction'
+import { useHistory } from 'react-router-dom'
+
+
+const Register = ({register}) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [userName, setUserName ] = useState("")
   const [isFormValid, setIsFormValid] = useState(false)
 
+  const history = useHistory()
+
   const handelRegister = ( ) => {
-    console.log(email, password, userName)
+    const userDetails = {email, password, userName};
+    register(userDetails, history)
   } 
   useEffect(()=> {
     setIsFormValid(validateRegister({email, password, userName}))
@@ -41,5 +49,10 @@ const Register = () => {
     </AuthBox>
   )
 }
+const mapActionsToProp = (dispatch) => {
+  return {
+    ...getActions(dispatch)
+  } 
+ }
 
-export default Register
+export default connect(null, mapActionsToProp)(Register)
