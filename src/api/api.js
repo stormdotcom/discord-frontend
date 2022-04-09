@@ -1,0 +1,31 @@
+import axios from 'axios';
+
+const apiClient = axios.create({
+    baseURL : 'http://localhost:4000/api',
+    timeout: 1000
+});
+
+
+export const login = async(data)=> {
+    try {       
+        return await apiClient.post('/auth/login', data);
+
+    } catch (exception) {
+        return {
+            error: true,
+            message:exception.response.data,
+        }
+    }
+}
+
+export const register = async(data)=> {
+    try {       
+        return await apiClient.post('/auth/register', data);
+
+    } catch (exception) {
+        return {
+            error: true,
+            message:exception.response.data,
+        }
+    }
+}
