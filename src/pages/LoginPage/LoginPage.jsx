@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import { getActions } from '../../redux/actions/authAction'
 import { useHistory } from 'react-router-dom'
 
-const LoginPage = ({login}) => {
+const LoginPage = ({loginAction}) => {
   const [email, setMail] = useState("")
   const [password, setPassword] = useState("")
   const [isFormValid, setIsFormValid] = useState(false)
@@ -19,7 +19,7 @@ const LoginPage = ({login}) => {
 
   const handleLogin = () => {
     const userDetails={email, password, }
-      login(userDetails, history)
+    loginAction(userDetails, history)
   }
   return (
       <AuthBox  >

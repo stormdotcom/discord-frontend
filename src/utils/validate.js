@@ -18,7 +18,7 @@ const validateUserName = (userName)=>{
 
 const validatePassword = (password) => { 
 
-    return password.length > 4 && password.length < 9;
+    return password.length > 4 && password.length < 19;
 }
 
 const validateEmail = (email) => {

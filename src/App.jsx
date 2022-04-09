@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/Register/Register'
 import Dashboard from './pages/Dashboard/Dashboard'
+import AlertNotifications from "./components/AlertNotifications/AlertNotifications"
 function App() {
   return (
+    <> 
    <Router>
      <Switch>
          <Route exact path='/login' >
@@ -21,6 +23,8 @@ function App() {
        </Route>
      </Switch>
    </Router>
+    <AlertNotifications />
+   </>
 
   )
 }

@@ -7,13 +7,13 @@ const initialState = {
 const reducer = (state=initialState, action)=> {
     switch (action.type) {
         case authActions.SET_AUTH_ACTIONS:
-            return {
-                ...state,
-                userDetails: action.payload,
-            };
+                return {
+                    ...state,
+                    userDetails: action.payload,
+                };
         
         default:
-            break;
+            return state
     }
 }
 
