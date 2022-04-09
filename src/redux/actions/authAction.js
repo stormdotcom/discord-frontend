@@ -36,7 +36,7 @@ const register = (userInput, history)=> {
     return async (dispatch)=>{
         const response =await api.register(userInput)
         if(response?.error) {
-            // git
+            // 
         }
         const {userDetails} = response?.data;
         localStorage.setItem('user', JSON.stringify(userDetails))
