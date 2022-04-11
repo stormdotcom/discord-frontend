@@ -9,7 +9,7 @@ import { getActions } from '../../redux/actions/authAction'
 import { useHistory } from 'react-router-dom'
 
 
-const Register = ({register}) => {
+const Register = ({registerAction}) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [userName, setUserName ] = useState("")
@@ -19,7 +19,7 @@ const Register = ({register}) => {
 
   const handelRegister = ( ) => {
     const userDetails = {email, password, userName};
-    register(userDetails, history)
+    registerAction(userDetails, history)
   } 
   useEffect(()=> {
     setIsFormValid(validateRegister({email, password, userName}))

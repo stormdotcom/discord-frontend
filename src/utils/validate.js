@@ -18,10 +18,10 @@ const validateUserName = (userName)=>{
 
 const validatePassword = (password) => { 
 
-    return password.length > 4 && password.length < 9;
+    return password.length > 4 && password.length < 19;
 }
 
-const validateEmail = (email) => {
+export const validateEmail = (email) => {
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     return emailPattern.test(email)
