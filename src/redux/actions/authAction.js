@@ -8,7 +8,14 @@ export const authActions = {
 export const getActions = (dispatch) => {
     return {
         loginAction :(userDetails, history)=> dispatch(login(userDetails, history)),
+<<<<<<< HEAD
+        registerAction:(userDetails, history)=> dispatch(register(userDetails, history)),
+        setUserDetails: (userDetails)=> {
+            dispatch(setUserDetails(userDetails))
+        }
+=======
         registerAction:(userDetails, history)=> dispatch(register(userDetails, history))
+>>>>>>> main
         
 
     }
