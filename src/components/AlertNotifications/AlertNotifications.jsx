@@ -8,12 +8,10 @@ function AlertNotifications({
     closeAlertMessage,
     alertMessage,
 }) {
-    console.log(showAlertMessage,
-        closeAlertMessage,
-        alertMessage,)
+
   return (
     <Snackbar 
-    anchorOrgin={{  vertical: "bottm", horizontal: "right" }}
+    anchorOrigin={{  vertical: "top", horizontal: "center" }}
     open={showAlertMessage}
     onClose={closeAlertMessage}
     autoHideDuration={6000}

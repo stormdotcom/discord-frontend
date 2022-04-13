@@ -7,6 +7,7 @@ import Messenger from './Messenger/Messenger';
 import { logout } from '../../utils/logout';
 import { connect } from 'react-redux';
 import { getActions } from '../../redux/actions/authAction';
+import { connectWithSocketServer } from '../../realTimeCommuincation/connection';
 
 const Wrapper = styled('div')({
   width:'100%',
@@ -22,6 +23,7 @@ const Dashboard = ({setUserDetails}) => {
     const userDetails = localStorage.getItem('user');
     if(!userDetails) logout()
     setUserDetails(JSON.parse(userDetails))
+    connectWithSocketServer(JSON.parse(userDetails))
   },[])
 
   return (

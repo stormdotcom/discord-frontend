@@ -21,9 +21,10 @@ export const login = async(data)=> {
         return await apiClient.post('/auth/login', data);
 
     } catch (exception) {
+        console.log(exception)
         return {
             error: true,
-            message:exception.response.data,
+            message:exception.response?.data,
         }
     }
 }
@@ -35,12 +36,29 @@ export const register = async(data)=> {
     } catch (exception) {
         return {
             error: true,
-            message:exception.response.data,
+            message:exception.response?.data,
         }
     }
 }
+// Secure routes
+export const sendFriendInvitation = async (data)=> {
+     
+    try {
+        return await apiClient.post('/friend-invitation/invite', data)
+    } catch (error) {
+
+        checkResponseCode(error)
+        return {
+            error: true,
+            message:error.response?.data,
+        }
+        
+    }
+}
+
 
 const checkResponseCode = (exception) => {
          const responseCode = exception?.response?.status
          if(responseCode && (responseCode === 401 || responseCode === 403) ) logout()
+
 }
