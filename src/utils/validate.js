@@ -5,10 +5,10 @@ export function validateLoginForm( {email, password}){
     const isPasswordValid = validatePassword(password);
     return isMailValid && isPasswordValid;
 }
-export function validateRegister( { email, password, userName}){
+export function validateRegister( { email, password, username}){
     const isMailValid = validateEmail(email)
     const isPasswordValid = validatePassword(password)
-    const isUserName = validateUserName(userName)
+    const isUserName = validateUserName(username)
     return isMailValid && isPasswordValid && isUserName;
 }
 

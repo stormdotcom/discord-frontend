@@ -12,18 +12,18 @@ import { useHistory } from 'react-router-dom'
 const Register = ({registerAction}) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [userName, setUserName ] = useState("")
+  const [username, setUserName ] = useState("")
   const [isFormValid, setIsFormValid] = useState(false)
 
   const history = useHistory()
 
   const handelRegister = ( ) => {
-    const userDetails = {email, password, userName};
+    const userDetails = {email, password, username};
     registerAction(userDetails, history)
   } 
   useEffect(()=> {
-    setIsFormValid(validateRegister({email, password, userName}))
-  },[email, password, userName, isFormValid])
+    setIsFormValid(validateRegister({email, password, username}))
+  },[email, password, username, isFormValid])
 
   return (
     <AuthBox>
@@ -35,7 +35,7 @@ const Register = ({registerAction}) => {
       setEmail={setEmail} 
       password={password} 
       setPassword={setPassword}
-      userName={userName} 
+      username={username} 
       setUserName={setUserName} 
       isFormValid={isFormValid}
       setIsFormValid={setIsFormValid}

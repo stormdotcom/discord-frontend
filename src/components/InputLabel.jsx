@@ -30,6 +30,7 @@ function InputLabel(props) {
 
     const {value, setValue, label, type, placeholder} =props
     const handleInput = (e)=> setValue(e.target.value)
+                                
   return (
     <Wrapper>
         <Label > {label}</Label>

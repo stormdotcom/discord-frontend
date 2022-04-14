@@ -2,7 +2,7 @@ import React from 'react'
 import InputLabel from '../../components/InputLabel'
 
 function RegisterInputs(props) {
-  const {email, password, userName, setEmail, setPassword, setUserName} = props
+  const {email, password, username, setEmail, setPassword, setUserName} = props
   return (
     <>
     <InputLabel
@@ -18,7 +18,7 @@ function RegisterInputs(props) {
      placeholder="Enter Password"
     />
      <InputLabel
-     value={userName}
+     value={username}
      setValue={setUserName}
      label="Username"
      placeholder="Enter Username"

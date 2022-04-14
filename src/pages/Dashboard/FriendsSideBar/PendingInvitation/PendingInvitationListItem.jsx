@@ -2,11 +2,10 @@ import { Box, Tooltip, Typography } from '@mui/material';
 import React, { useState} from 'react'
 import Avatar from '../../../../components/Avatar/Avatar';
 import InvitationDecisionButtons from './InvitationDecisionButtons';
+import { connect } from 'react-redux';
+import { getActions } from '../../../../redux/actions/friendsAction';
 
-function PendingInvitationListItem(
-    {   id, 
-        username, 
-        mail, 
+function PendingInvitationListItem( {   id, username, mail, 
         acceptFriendInvitation = ()=> {},  
         rejectFriendInvitation= ()=> {}}) 
         {
@@ -21,7 +20,7 @@ function PendingInvitationListItem(
         }
   return (
     <Tooltip title={mail }> 
-        <div style={{width: '100%' }}>
+        <div  style={{width: '100%' }}>
         <Box
         sx={{
             width: '100%',
@@ -47,7 +46,7 @@ function PendingInvitationListItem(
             <InvitationDecisionButtons 
         disabled={buttonDisabled}
         acceptInvitationHandler={handleAcceptInvitation}
-        rejectInvitation={handleRejectInvitation}
+        rejectInvitationHandler={handleRejectInvitation}
         > 
         </InvitationDecisionButtons >
         </Box>
@@ -56,4 +55,9 @@ function PendingInvitationListItem(
     </Tooltip>
   )
 } 
-export default PendingInvitationListItem
+const mapActionToProps = (dispatch)=>{
+    return {
+        ...getActions(dispatch)
+    }
+}
+export default connect(null, mapActionToProps)(PendingInvitationListItem)

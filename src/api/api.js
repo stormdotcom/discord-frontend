@@ -16,6 +16,7 @@ apiClient.interceptors.request.use((config)=>{
     return Promise.reject(err)
 });
 
+
 export const login = async(data)=> {
     try {       
         return await apiClient.post('/auth/login', data);
@@ -53,6 +54,32 @@ export const sendFriendInvitation = async (data)=> {
             message:error.response?.data,
         }
         
+    }
+}
+
+export const acceptFriendInvitation = async (data)=> {
+    try {
+        return await apiClient.post('/friend-invitation/accept', data);
+
+    } catch (error) {
+           checkResponseCode(error)
+        return {
+            error: true,
+            message:error.response?.data,
+        }
+    }
+}
+
+export const rejectFriendInvitation = async (data)=> {
+    try {
+        return await apiClient.post('/friend-invitation/reject', data);
+
+    } catch (error) {
+           checkResponseCode(error)
+        return {
+            error: true,
+            message:error.response?.data,
+        }
     }
 }
 

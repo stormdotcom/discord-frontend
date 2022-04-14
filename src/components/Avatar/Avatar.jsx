@@ -21,7 +21,7 @@ function Avatar({ username, large}) {
     <AvatarPreview 
     style={large ? {height: '80px', width: '80px'} : {} }
     >
-        <Typography fontWeight={600}> {username.substring(0,2).toUpperCase()} </Typography>
+        <Typography fontWeight={600}> {username?.substring(0,2).toUpperCase()} </Typography>
 
     </AvatarPreview>
   )
